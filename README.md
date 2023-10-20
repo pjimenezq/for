@@ -8,6 +8,11 @@ Para cada punto cree un programa individual asimismo cree un notebook con la sol
 Imprimir un listado con los números del 1 al 100 cada uno con su respectivo cuadrado.
 
 **Código**
+```
+for num in range(1,101):#Para cada número num desde 1 hasta 100, incrementando de uno en uno
+    cuadrado=num**2#Hallar el valor de num elevado al cuadrado
+    print(num,cuadrado,sep=", ")#Imprimir num y num al cuadrado (separados por una coma)
+```
 
 ## Punto dos
 Imprimir un listado con los números impares desde 1 hasta 999 y seguidamente otro listado con los números pares desde 2 hasta 1000.
