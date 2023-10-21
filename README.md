@@ -85,6 +85,51 @@ for num in range(1,10):#Para todo número num desde 1 hasta 9, incrementando de 
 Diseñar una función que permita calcular una aproximación de la función exponencial alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Maclaurin. Nota: use math para traer la función exponencial y mostrar la diferencia entre el valor real y la aproximación. Determine con que valor n se obtiene menos del 0.1% de error.
 
 **Código**
+```
+def elFactorial(x:int)->int:#Función para calcular el factorial
+    factorial:int=1 #Declarando factorial como un entero e inicializandolo en 1
+    for i in range(1,x+1):#Para todo número i desde 1 hasta el x ingresado, incrementando de uno en uno
+        factorial=i*factorial#multiplicar el número i por el valor de factorial
+    return factorial
+
+
+def funcionExponencial(x:float,n:int)->float:#Función para calcular una aproximación de la función exponencial
+    suma : int = 0#Declarando suma como entero e inicializandolo en 0
+    for i in range(0, n):#Para todo número i desde 0 hasta n-1, incrementando de uno en uno
+        fact=elFactorial(i)#Se halla el factorial de i, llamando la función elFactorial
+        calculo=(x**i)/fact#se calcula x^i/i!
+        suma += calculo#Se suma los resultados hasta n-1
+    return(suma)
+
+if __name__=="__main__":
+    n = int(input("Ingrese la cantidad de términos: "))#Declarando e inicializando n con input()
+    x = float(input("Ingrese valor x: "))#Declarando e inicializando x con input()
+    funcion=funcionExponencial(x,n)#Se llama la función funcionExponencial
+    print("La aproximación de la función exponencial, con " + str(n) + " términos, es " + str(funcion)) #Se imprime el resultado de la aproximación
+
+import math
+potencia=math.exp(x)#Llamando la función exponencial de x
+print("El valor real de la función exponencial es "+ str(potencia))#Imprimiendo el valor real de la función exponencial de x
+
+error=((abs(funcion-potencia))/(abs(potencia)))*100#Formula para calcular el error en porcentaje
+print("El error es de " +str(error))#Imprimiendo error
+```
+
+La siguiente tabla muestra los valores de n con los que se obtiene menos del 0.1% de error, con valores de x desde 1 hasta 10.
+
+|  x  |  n  |error               |
+|-----|-----|--------------------|
+|  1  |  6  |0.05941848175817597 | 
+|  2  |  9  |0.02374473282612521 | 
+|  3  |  11 |0.02923369506475417 | 
+|  4  |  12 |0.0915229147270035  | 
+|  5  |  14 |0.0697989979140001  | 
+|  6  |  16 |0.05090982712176348 | 
+|  7  |  17 |0.09581831589178165 | 
+|  8  |  19 |0.06503681480925541 | 
+|  9  |  21 |0.043925185772928046| 
+|  10 |  22 |0.06996505123349094 | 
+
 
 ## Punto nueve
 Diseñar una función que permita calcular una aproximación de la función seno alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Maclaurin. Nota: use math para traer la función seno y mostrar la diferencia entre el valor real y la aproximación. Determine con que valor n se obtiene menos del 0.1% de error.
