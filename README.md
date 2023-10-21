@@ -105,11 +105,11 @@ if __name__=="__main__":
     n = int(input("Ingrese la cantidad de términos: "))#Declarando e inicializando n con input()
     x = float(input("Ingrese valor x: "))#Declarando e inicializando x con input()
     funcion=funcionExponencial(x,n)#Se llama la función funcionExponencial
-    print("La aproximación de la función exponencial, con " + str(n) + " términos, es " + str(funcion)) #Se imprime el resultado de la aproximación
+    print("La aproximación de la función exponencial de " +str(x)+", con " + str(n) + " términos, es " + str(funcion)) #Se imprime el resultado de la aproximación
 
 import math
 potencia=math.exp(x)#Llamando la función exponencial de x
-print("El valor real de la función exponencial es "+ str(potencia))#Imprimiendo el valor real de la función exponencial de x
+print("El valor real de la función exponencial de " +str(x) +" es "+ str(potencia))#Imprimiendo el valor real de la función exponencial de x
 
 error=((abs(funcion-potencia))/(abs(potencia)))*100#Formula para calcular el error en porcentaje
 print("El error es de " +str(error))#Imprimiendo error
@@ -155,11 +155,12 @@ if __name__=="__main__":
     n = int(input("Ingrese la cantidad de términos: "))#Declarando e inicializando n con input()
     x = float(input("Ingrese valor x: "))#Declarando e inicializando x con input()
     funcion=funcionSeno(x,n)#Se llama la función funcionSeno
-    print("La aproximación de la función seno, con " + str(n) + " términos, es " + str(funcion)) #Se imprime el resultado de la aproximación
+    print("La aproximación de la función seno de " +str(x)+", con " + str(n) + " términos, es " + str(funcion)) #Se imprime el resultado de la aproximación
+    
 
 import math
 potencia=math.sin(x)#Llamando la función seno de x
-print("El valor real de la función seno es "+ str(potencia))#Imprimiendo el valor real de la función seno de x
+print("El valor real de la función seno de " +str(x) +" es "+ str(potencia))#Imprimiendo el valor real de la función seno de x
 
 error=((abs(funcion-potencia))/(abs(potencia)))*100#Formula para calcular el error en porcentaje
 print("El error es de " +str(error))#Imprimiendo error
