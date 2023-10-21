@@ -180,7 +180,44 @@ La siguiente tabla muestra los valores de n con los que se obtiene menos del 0.1
 |  8  |  13 |0.020789417800142904| 
 |  9  |  15 |0.01045015598196332 | 
 |  10 |  16 |0.019515072875495535| 
+
 ## Punto diez
 Diseñar una función que permita calcular una aproximación de la función arcotangente alrededor de 0 para cualquier valor x en el rango [-1, 1], utilizando los primeros n términos de la serie de Maclaurin. Nota: use math para traer la función arctan y mostrar la diferencia entre el valor real y la aproximación. Determine con que valor n se obtiene menos del 0.1% de error.
 
 **Código**
+```
+def funcionArcTan(x:float,n:int)->float:#Función para calcular una aproximación de la función arcotangente
+    suma : int = 0#Declarando suma como entero e inicializandolo en 0
+    for i in range(0, n):#Para todo número i desde 0 hasta n-1, incrementando de uno en uno
+        calculo=((-1)**i)*((x**(2*i+1))/(2*i+1))#se calcula (-1)^i*((x^(2i+1)/(2i+1))
+        suma += calculo#Se suma los resultados hasta n-1
+    return(suma)
+
+if __name__=="__main__":
+    n = int(input("Ingrese la cantidad de términos: "))#Declarando e inicializando n con input()
+    x = float(input("Ingrese valor x: "))#Declarando e inicializando x con input()
+    funcion=funcionArcTan(x,n)#Se llama la función funcionArcTan
+    print("La aproximación de la función arcotangente de " +str(x)+", con " + str(n) + " términos, es " + str(funcion)) #Se imprime el resultado de la aproximación
+    
+
+import math
+arcTan=math.atan(x)#Llamando la función arcotangente de x
+print("El valor real de la función arcotangente de " +str(x) +" es "+ str(arcTan))#Imprimiendo el valor real de la función arcotangente de x
+
+error=((abs(funcion-arcTan))/(abs(arcTan)))*100#Formula para calcular el error en porcentaje
+print("El error es de " +str(error))#Imprimiendo error
+```
+La siguiente tabla muestra los valores de n con los que se obtiene menos del 0.1% de error, con valores de x desde -1 hasta 1.
+
+|  x  |  n  |error               |
+|-----|-----|--------------------|
+|  -1 | 319 |0.09978341824136393 | 
+| -0.8|  9  |0.0712837225993695  | 
+| -0.6|  5  |0.04684472248010963 | 
+| -0.4|  3  |0.05474009552283815 | 
+| -0.2|  2  |0.03152376709727691 | 
+|  0.2|  2  |0.03152376709727691 | 
+|  0.4|  3  |0.05474009552283815 | 
+|  0.6|  5  |0.04684472248010963 | 
+|  0.8|  9  |0.0712837225993695  | 
+|  1  | 319 |0.09978341824136393 | 
